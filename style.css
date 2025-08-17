@@ -358,7 +358,7 @@ input:checked + .slider::before {
     border-radius: 4px;
 }
 
-/* THIS IS THE FIX FOR THE MOBILE ALIGNMENT ISSUE */
+/* Mobile Responsiveness for the new section */
 @media (max-width: 768px) {
     .redeeming-players-container {
         flex-direction: column;

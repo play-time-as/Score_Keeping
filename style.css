@@ -364,7 +364,7 @@ input:checked + .slider::before {
         flex-direction: column;
     }
 
-    /* Ensure form inputs and button wrap properly */
+    /* THIS IS THE KEY FIX FOR THE FORM */
     .redeem-form {
         flex-direction: column;
         gap: 10px;
@@ -374,9 +374,13 @@ input:checked + .slider::before {
         width: 100%;
         box-sizing: border-box; /* Ensures padding doesn't add to width */
     }
+
+    .redeem-form button {
+        width: 100%; /* Makes the button full-width on mobile */
+    }
 }
 
-/* Existing CSS for .redeeming-player and .redeeming-list-container... */
+
 .redeem-form {
     display: flex;
     gap: 10px;

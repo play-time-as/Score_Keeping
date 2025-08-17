@@ -1,0 +1,506 @@
+/* General Body and Container Styles */
+body {
+    background-color: #f4f4f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.main-container {
+    width: 100%;
+    max-width: 1000px;
+    text-align: center;
+    /* padding-bottom: 20px; */
+}
+
+/* Title Styling */
+h1 {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #9ac3ec;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Flexbox for the Score Boxes */
+.score-sections-container {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures they do not wrap to the next line */
+    justify-content: center;
+    gap: 30px;
+}
+
+.score-box {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    flex: 1 1 45%; /* Flex-grow, flex-shrink, flex-basis: allows boxes to resize */
+    min-width: 300px; /* Prevents boxes from getting too small */
+}
+
+.box-title {
+    font-size: 1.8em;
+    color: #34495e;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 10px;
+    font-weight: 600;
+}
+
+/* Player and Counter Styling */
+.player {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px dashed #e0e0e0;
+}
+
+.player:last-child {
+    border-bottom: none;
+}
+
+.player-name {
+    font-size: 1.2em;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.player-name::after {
+    content: ":";
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.counter input {
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 1.2em;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    background-color: #ecf0f1;
+    transition: border-color 0.3s;
+}
+
+.counter input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+.counter button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border: none;
+    border-radius: 50%; /* Makes buttons round */
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+.counter button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.counter button:active {
+    transform: translateY(0);
+}
+
+/* Mobile Responsiveness (Media Query) */
+@media (max-width: 768px) {
+    .score-sections-container {
+        flex-direction: column; /* Stacks boxes vertically on small screens */
+        gap: 20px;
+    }
+    
+    .score-box {
+        width: 100%; /* Makes each box full-width */
+        flex: none;
+    }
+
+    h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+}
+
+/* Define color variables for light mode */
+:root {
+    --bg-color: #f4f4f9;
+    --text-color: #333;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --title-color: #2c3e50;
+    --accent-color: #3498db;
+    --button-bg: #3498db;
+    --button-text: #fff;
+    --player-border: #e0e0e0;
+}
+
+/* Dark mode colors */
+body.dark-mode {
+    --bg-color: #1a1a2e;
+    --text-color: #e0e0e0;
+    --card-bg: #2a2a4a;
+    --border-color: #444;
+    --title-color: #92a8d1;
+    --accent-color: #92a8d1;
+    --button-bg: #5c62a8;
+    --button-text: #fff;
+    --player-border: #444;
+}
+
+/* Apply variables to styles */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s, color 0.5s; /* Smooth transition */
+}
+
+.score-box {
+    background-color: var(--card-bg);
+    border-color: var(--border-color);
+}
+
+.box-title {
+    color: var(--title-color);
+    border-bottom-color: var(--accent-color);
+}
+
+.player {
+    border-bottom-color: var(--player-border);
+}
+
+.player-name {
+    color: var(--title-color);
+}
+
+.counter input {
+    border-color: var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+}
+
+.counter button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+}
+
+Container for the switch
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Base style for the toggle switch */
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+/* Hide the default checkbox */
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider background */
+.slider {
+    background-color: #aeb4c0;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+/* The circular slider handle */
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+/* Style the slider when the checkbox is checked */
+input:checked + .slider {
+    background-color: #3f4458; /* Change background color */
+}
+
+/* Move the slider handle when checked */
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* Icon styling */
+.sun-icon, .moon-icon {
+    font-size: 1.2em;
+}
+.sun-icon { color: #ff0; }
+.moon-icon { color: #ddd; }
+
+/* Existing CSS remains the same */
+
+/* Theme Switch Styles */
+.theme-switch-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.theme-switch {
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    width: 60px;
+}
+
+.theme-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    background-color: #aeb4c0;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    border-radius: 34px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px; /* Adjusted padding to create more space */
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #3f4458;
+}
+
+input:checked + .slider::before {
+    transform: translateX(26px);
+}
+
+/* Icon styling */
+.sun-icon, .moon-icon {
+    font-size: 1.2em;
+}
+.sun-icon {
+    color: #ff0;
+}
+.moon-icon {
+    color: #ddd;
+    margin-left: auto;
+    margin-right: auto; /* This is the key fix! */
+}
+
+/* Existing CSS remains the same */
+
+/* New CSS for the Redeeming Section */
+.redeeming-section {
+    margin-top: 40px;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.redeeming-section h2 {
+    font-size: 1.8em;
+    color: var(--title-color);
+    margin-bottom: 25px;
+    border-bottom: 2px solid var(--accent-color);
+    padding-bottom: 10px;
+}
+
+.redeeming-players-container {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.redeeming-player {
+    flex: 1;
+    text-align: center;
+}
+
+.redeeming-player h3 {
+    font-size: 1.5em;
+    color: var(--text-color);
+    margin-bottom: 15px;
+}
+
+.redeeming-list-container {
+    /* Remove or comment out these lines to fix the issue */
+    height: 250px; 
+    overflow-y: auto; 
+
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: var(--bg-color);
+    transition: background-color 0.5s, border-color 0.5s;
+}
+
+
+.redeeming-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.redeemed-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px dashed var(--player-border);
+}
+
+.redeemed-item:last-child {
+    border-bottom: none;
+}
+
+/* Add some padding for the scrollbar on webkit browsers */
+.redeeming-list-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.redeeming-list-container::-webkit-scrollbar-thumb {
+    background-color: #bdc3c7;
+    border-radius: 4px;
+}
+
+/* Mobile Responsiveness for the new section */
+@media (max-width: 768px) {
+    .redeeming-players-container {
+        flex-direction: column;
+    }
+}
+
+/* Existing CSS for .redeeming-player and .redeeming-list-container... */
+
+.redeem-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.redeem-form input {
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    padding: 8px;
+    flex: 1;
+}
+
+.redeem-form input[type="number"] {
+    width: 80px;
+}
+
+.redeem-form button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.redeem-form button:hover {
+    background-color: #2980b9;
+}
+
+/* Existing CSS for .redeemed-item... */
+
+.redeemed-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px dashed var(--player-border);
+    cursor: pointer; /* To indicate it's clickable */
+    transition: all 0.3s ease;
+}
+
+.redeemed-item:last-child {
+    border-bottom: none;
+}
+
+.completed-task .task-text,
+.completed-task .task-points {
+    text-decoration: line-through;
+    color: #888; /* A lighter color for completed items */
+}
+
+/* Styling for the Clear Data button */
+#clear-data-btn {
+    display: block;
+    margin: 20px     auto; /* Centers the button and adds space around it */
+    padding: 12px 24px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    background-color: #e74c3c; /* A red color to signify a 'clear' action */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#clear-data-btn:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
